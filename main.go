@@ -77,7 +77,7 @@ func main() {
 		}
 
 		// The URL at which the container's HTTP endpoint will be available
-		ctx.Export("url", pulumi.Sprintf("http://%s", loadbalancer.LoadBalancer.DnsName()))
+		ctx.Export("url", pulumi.Sprintf("http://%s:%s", loadbalancer.LoadBalancer.DnsName(), containerPort))
 		return nil
 	})
 }
